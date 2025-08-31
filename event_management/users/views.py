@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import UserSerializer
@@ -31,3 +32,25 @@ class LoginView(APIView):
             "refresh": str(refresh),
             "access": str(refresh.access_token),
         })
+    
+class LogoutView(APIView):
+    permission_classes=[permissions.IsAuthenticated]
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh"]
+            token = RefreshToken(refresh_token)
+            token.blacklist() #Blacklist the token
+            return Response({"message": "Successfully logged out!"}, status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response({"error": "Invalid or expired token!"}, status=status.HTTP_400_BAD_REQUEST)
+    
+# Get loged in user profile
+class UserProfileView(generics.RetrieveAPIView):
+    serializer_class=UserSerializer
+    permission_classes=[permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+    
+

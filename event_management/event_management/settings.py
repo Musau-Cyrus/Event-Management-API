@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'events',
     'bookings',
     'rest_framework',
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 REST_FRAMEWORK = {

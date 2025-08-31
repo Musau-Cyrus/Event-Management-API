@@ -6,7 +6,6 @@ class UserSerializer(serializers.Serializer):
     username = serializers.CharField()
     email = serializers.CharField()
     password = serializers.CharField(write_only=True)
-    role=serializers.CharField()
 
     def create(self, validated_data):
         user = User(

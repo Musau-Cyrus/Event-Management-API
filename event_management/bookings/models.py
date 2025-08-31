@@ -13,7 +13,7 @@ class Booking(models.Model):
         on_delete=models.CASCADE,
         related_name="bookings"
     )
-    booking_time = models.DateTimeField(auto_now_add=True)
+    booked_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('user', 'event')  # Prevent duplicate bookings

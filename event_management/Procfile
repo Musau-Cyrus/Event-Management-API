@@ -1,1 +1,1 @@
-web: gunicorn EventManagement.wsgi
+web: gunicorn event_management.wsgi

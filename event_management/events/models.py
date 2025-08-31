@@ -6,7 +6,7 @@ class Event(models.Model):
     description=models.TextField(blank=True)
     location=models.CharField(max_length=255)
     event_date=models.DateTimeField()
-    capacity=models.PositiveIntegerField()
+    capacity=models.IntegerField(default=0)
     created_at=models.DateTimeField(auto_now_add=True)
     created_by=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="organized_events")
 

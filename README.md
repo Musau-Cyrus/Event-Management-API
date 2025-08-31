@@ -9,4 +9,21 @@ This is a backend system that allows people to create, manage, and participate i
 
 This system doesn’t include a user interface (like a mobile app or website), but it powers one through its API endpoints — which are just digital doors through which apps talk to the system.
 
-sIdZixdGGMbba5DX
+## Setup
+### Clone the repository
+```
+git clone https://github.com/Musau-Cyrus/Event-Management-API.git
+cd event-management
+```
+### Install dependencies
+```
+pip install -r requirements.txt
+```
+### Run server
+```
+python manage.py runserver
+```
+### Default URL:
+```
+http://127.0.0.1:8000/api/
+```
